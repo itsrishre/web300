@@ -1,7 +1,7 @@
 <?php
 require('secure.php');
 $username=$db->escape_string($_POST['username']);
-$url=$db->escape_string($_POST['img_url']);
+$url=strip_tags($db->escape_string($_POST['img_url']));
 
 $result=$db->query("INSERT INTO images VALUES ('$username','$url')");
 if($result)
